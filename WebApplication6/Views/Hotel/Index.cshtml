@@ -1,0 +1,80 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Hotels</h1>
+
+<button class="btn  btn-sm btn-primary m-2 " id="btnAddHotel">Add Hotel </button>
+
+<table class="table table-light">
+    <thead>
+        <tr class="text-center">
+            <th>Id</th>
+            <th>Hotel Name</th>
+            <th>Address</th>
+            <th>Price Per Night</th>
+            <th>DestinationId</th>
+        </tr>
+    </thead>
+
+    <tbody class="text-center" id="table_data"></tbody>
+</table>
+
+<div class="modal fade modal" id="HotelModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="text-info modal-title" id="hotelHeading">Add Hotel</h1>
+                <button class="close text-danger" data-dismiss="modal">&times;</button>
+            </div>
+
+            <div class="modal-body">
+                <form method="post">
+                    <div class="form-group" id="htlId">
+                        <label>HotelID</label>
+                        <input type="text" class="form-control" id="HotelId" disabled="disabled" />
+                    </div>
+
+                    <div class="form-group">
+                        <label>Hotel Name</label>
+                        <input type="text" placeholder="Enter Hotel Name" class="form-control" id="HotelName" autocomplete="off" />
+                    </div>
+                    <div class="form-group">
+                        <label>Address</label>
+                        <input type="text" placeholder="Enter Address" class="form-control" id="Address" autocomplete="off" />
+                    </div>
+
+                    <div class="form-group">
+                        <label>Price Per Night</label>
+                        <input type="text" placeholder="Enter Price" class="form-control" id="Pricepernight" autocomplete="off" />
+                    </div>
+                    <div class="form-group">
+                        <label>Destination ID</label>
+                        <input type="text" placeholder="Enter Destination ID" class="form-control" id="DestinationID" autocomplete="off" />
+                    </div>
+                </form>
+            </div>
+
+            <div class="modal-footer">
+                <button class="btn btn-primary" onclick="AddHotel();" id="AddHotel">Save</button>
+                <button class="btn btn-warning" onclick="UpdateHotel();" style="display:none" id="UpdateHotel">Update</button>
+                <button class="btn btn-danger btn default" data-dismiss="modal">Close</button>
+
+            </div>
+
+
+
+        </div>
+    </div>
+</div>
+
+<div>
+
+    <input type="hidden" id="urlHotelData" value="@Url.Action("HotelList", "Hotel" )" />
+
+</div>
+
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/js/customhotel.js"></script>

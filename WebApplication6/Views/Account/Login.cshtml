@@ -1,0 +1,73 @@
+﻿@model WebApplication6.Models.ViewModel.LoginviewModel
+@{
+    ViewData["Title"] = "Login";
+    Layout = "~/Views/Shared/_Layoutlgn.cshtml";
+}
+<div class="container">
+<div class="row mt-lg-5">
+    <div class="col-4 offset-4 border border-primary rounded pl-5 pr-5 pb-5">
+        <div class="text-center">
+            <a class="text-light btn btn-primary font-weight-bold"
+            asp-action="SignUp" asp-controller="Account">Sign Up</a>
+        </div>
+        <form method="post" asp-action="Login">
+            <div class="form-group">
+                <label asp-form="Username"></label>
+                <input type="text" asp-for="UserrName" placeholder="Enter username" class="form-control" autocomplete="off" />
+                <span class="text-danger">@TempData["errorUsername"]</span>
+            </div>
+
+                <div class="form-group">
+                    <label asp-form="Password"></label>
+          <input id="password" type="password" asp-for="Password" placeholder="Enter password" class="form-control" autocomplete="off" />
+                    <span class="text-danger">@TempData["errorPassword"]</span>
+
+      <i  id="open" class="fa fa-eye float-right"  style="margin-top:-22px;margin-right:6px;cursor:pointer;"></i>
+            <i id="closed" class="fa fa-eye-slash float-right" style="margin-top:-22px;margin-right:6px;cursor:pointer;display:none;"></i>
+                </div>
+
+   <div class="form-group">
+       <input type="checkbox" asp-for="IsRemember" />
+       <label asp-for="IsRemember"></label>
+   </div>
+
+
+
+
+
+                <div class="form-group">
+                    <input type="submit" class="btn btn-block btn-primary mb-2"  value="Login"/>
+                </div>
+
+        </form>
+        <div class="text-center">
+            <a class="text-primary" asp-action="ForgotUsername">Forgot Username?</a><a class="text-primary" asp-action="ForgotPassword">Forgot Password</a>
+        </div>
+
+
+    </div>
+</div>
+
+
+</div>
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("#open").click(function(){   
+     $("#open").hide();
+     $("#closed").show();
+     $("#password").attr("type","text");
+    });
+        $("#closed").click(function () {
+            $("#closed").hide();
+            $("#open").show();
+            $("#password").attr("type", "password");
+        });
+
+
+});
+   
+   
+
+</script>

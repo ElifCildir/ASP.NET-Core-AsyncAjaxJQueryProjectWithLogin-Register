@@ -1,0 +1,86 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>User Reviews</h1>
+
+<button class="btn btn-sm btn-primary" id="btnAddReview">Add Review</button>
+
+<table class="table table-light">
+    <thead>
+        <tr class="text-center">
+            <th>ReviewID</th>
+            <th>Review</th>
+            <th>Rating</th>
+            <th>Date Posted</th>
+            <th>Username</th>
+            <th>DestinationID</th>
+        </tr>
+    </thead>
+
+    <tbody class="text-center" id="table_data"  ></tbody>
+</table>
+
+
+<div class="modal fade modal" id="ReviewModal">   
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-header" >
+                <h1 class="text-info modal-title" id="revHeader">Add Review</h1>
+                <button class="close text-danger" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form method="post">
+                    <div class="form-group" id="revId">
+                        <label>ReviewID</label>
+                        <input type="text" class="form-control" id="ReviewID" disabled="disabled" />
+                    </div>
+                    <div class="form-group" >
+                        <label>Review Text</label>
+                        <input type="text" placeholder="Enter Review" class="form-control" id="ReviewText" autocomplete="off" />
+                    </div>
+                    <div class="form-group">
+                        <label>Rating</label>
+                        <input type="text" placeholder="Enter Rate" class="form-control" id="Rating" autocomplete="off" />
+                    </div>
+                    <div class="form-group">
+                        <label>Date Posted</label>
+                        <input type="text" placeholder="Enter Date" class="form-control" id="DatePosted" autocomplete="off" />
+                    </div>
+                    <div class="form-group">
+                        <label>UserID</label>
+                        <input type="text" placeholder="Enter Username" class="form-control" id="UserrName" autocomplete="off" />
+                    </div>
+                    <div class="form-group">
+                        <label>DestinationID</label>
+                        <input type="text" placeholder="Enter DestinationID" class="form-control" id="DestinationID" autocomplete="off" />
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" onclick="AddReview()" id="AddReview">Save</button>
+                <button class="btn btn-warning" onclick="UpdateReview()" id="UpdateReview" style="display:none">Update</button>
+                <button class="btn btn-danger btn-default" data-dismis="modal">Close</button> 
+            </div>
+
+
+
+        </div>
+    </div>
+</div>
+
+
+<div>
+
+    <input type="hidden" id="urlReviewData" value="@Url.Action("ReviewList","UserReview")" />
+</div>
+
+
+
+
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/js/customreview.js"></script>

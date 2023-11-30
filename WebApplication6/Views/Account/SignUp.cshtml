@@ -1,0 +1,54 @@
+﻿@model WebApplication6.Models.ViewModel.LoginviewModel
+@{
+    ViewData["Title"] = "SignUp";
+    Layout = "~/Views/Shared/_Layoutlgn.cshtml";
+}
+<div class="container">
+    <div class="row">
+        <div class="col-6 offset-3 border border-primary rounded pl-5 pr-5 pb-5">
+            <div class="text-center">
+                <h1 class="text-info">User Registration Form</h1>
+            </div>
+            <form method="post" asp-action="SignUp">
+                <div class="form-group">
+                    <label asp-for="UserrName"></label>
+                    <input type="text" asp-for="UserrName" placeholder="Enter username" class="form-control" autocomplete="off" />
+
+                </div>
+
+
+
+                <div class="form-group">
+                    <label asp-for="Email"></label>
+                    <input type="text" asp-for="Email" placeholder="Enter Mail" class="form-control" autocomplete="off" />
+
+                </div>
+
+
+                <div class="form-group">
+                    <label asp-for="Mobile"></label>
+                    <input type="text" asp-for="Mobile" placeholder="Enter Mobile" class="form-control" autocomplete="off" />
+
+                </div>
+
+
+                <div class="form-group">
+                    <label asp-for="Password"></label>
+                    <input type="text" asp-for="Password" placeholder="Enter Password" class="form-control" autocomplete="off" />
+
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="ConfirmPassword"></label>
+                    <input type="text" asp-for="ConfirmPassword" placeholder="Enter ConfirmPassword" class="form-control" autocomplete="off" />
+
+                </div>
+                <div class="form-group">
+                    <input type="submit" class="btn btn-success btn-lg mb-1 float-right" value="Registration" />
+
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
